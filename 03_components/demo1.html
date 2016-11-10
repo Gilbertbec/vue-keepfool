@@ -25,7 +25,7 @@
         <table>
             <thead>
                 <tr>
-                    <th v-for="col in columns">{{ col.name }}</th>
+                    <th v-for="col in columns">{{ capitalize(col.name) }}</th>
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -58,6 +58,9 @@ Vue.component('simple-grid', {
                 console.log(item.name);
                 return item.name.indexOf(value) > -1;
             });
+        },
+        capitalize: function(val) {
+            return val.charAt(0).toUpperCase() + val.slice(1).toLowerCase();
         }
     }
 });
