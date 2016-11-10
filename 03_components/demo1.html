@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="../styles/demo.css">
+    <link rel="stylesheet" href="style.css">
     <script src="../lib/vue.js"></script>
     <script src="../lib/vue-router.js"></script>
 </head>
@@ -17,7 +17,7 @@
         </div>
 
         <div class="container">
-            <simple-grid :data-list="people" :columns="columns" :search-key="searchQuery"></simple-grid>
+            <simple-grid v-bind:data-list="people" v-bind:columns="columns" v-bind:search-key="searchQuery"></simple-grid>
         </div>
     </div>
 
