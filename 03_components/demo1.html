@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(value, key, index) in dataList">
+                <tr v-for="(value, key, index) in filterBy(dataList, searchKey)">
                     <td v-for="col in columns">
                         {{ value[col.name] }}
                     </td>
@@ -49,6 +49,15 @@ Vue.component('simple-grid', {
     methods: {
         deleteItem: function(index) {
             this.dataList.splice(index, 1);
+        },
+        filterBy:  function(list, value) {
+            return list.filter(function(item) {
+                if (!value) {
+                    return true;
+                }
+                console.log(item.name);
+                return item.name.indexOf(value) > -1;
+            });
         }
     }
 });
