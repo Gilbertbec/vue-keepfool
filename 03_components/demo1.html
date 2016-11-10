@@ -30,9 +30,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(index,entry) in dataList">
+                <tr v-for="(value, key, index) in dataList">
                     <td v-for="col in columns">
-                        {{ entry[col.name] }}
+                        {{ value[col.name] }}
                     </td>
                     <td class="text-center">
                         <button @click="deleteItem(index)">delete</button>
@@ -58,11 +58,11 @@ var demo = new Vue({
     data: {
         searchQuery: '',
         columns: [{
-            name: 'Name'
+            name: 'name'
         }, {
-            name: 'Age'
+            name: 'age'
         }, {
-            name: 'Sex'
+            name: 'sex'
         }],
         people: [{
             name: 'Jack',
